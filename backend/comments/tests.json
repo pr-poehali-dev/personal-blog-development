@@ -1,0 +1,30 @@
+{
+  "tests": [
+    {
+      "name": "Get comments for article",
+      "method": "GET",
+      "path": "/?article_id=1",
+      "expectedStatus": 200,
+      "expectedBody": {
+        "comments": "array"
+      },
+      "bodyMatcher": "partial"
+    },
+    {
+      "name": "Post new comment",
+      "method": "POST",
+      "path": "/",
+      "body": {
+        "article_id": 1,
+        "author_name": "Тестовый автор",
+        "author_email": "test@example.com",
+        "comment_text": "Это тестовый комментарий"
+      },
+      "expectedStatus": 201,
+      "expectedBody": {
+        "success": true
+      },
+      "bodyMatcher": "partial"
+    }
+  ]
+}
